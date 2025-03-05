@@ -17,19 +17,28 @@ let BookController = class BookController {
     constructor(bookService) {
         this.bookService = bookService;
     }
-    getBooks() {
+    getBooksRest() {
+        return this.bookService.getAllBooks();
+    }
+    getBooksMessage() {
         return this.bookService.getAllBooks();
     }
 };
 exports.BookController = BookController;
 __decorate([
+    (0, common_1.Get)(''),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], BookController.prototype, "getBooksRest", null);
+__decorate([
     (0, microservices_1.MessagePattern)({ cmd: 'get_books' }),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
-], BookController.prototype, "getBooks", null);
+], BookController.prototype, "getBooksMessage", null);
 exports.BookController = BookController = __decorate([
-    (0, common_1.Controller)(),
+    (0, common_1.Controller)('books'),
     __metadata("design:paramtypes", [book_service_1.BookService])
 ], BookController);
 //# sourceMappingURL=book.controller.js.map
